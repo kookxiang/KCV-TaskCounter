@@ -62,6 +62,7 @@ namespace TaskCounter {
             SupportedTasks.Add(new Tasks.DailyExpedition2());
             SupportedTasks.Add(new Tasks.DailyRepair());
             SupportedTasks.Add(new Tasks.DailySupply());
+            SupportedTasks.Add(new Tasks.DailyPowerUp());
 
             // 每周任务
             SupportedTasks.Add(new Tasks.OperationA());
@@ -71,6 +72,7 @@ namespace TaskCounter {
             SupportedTasks.Add(new Tasks.CrashSubmarine());
             SupportedTasks.Add(new Tasks.WeeklyExpedition());
             SupportedTasks.Add(new Tasks.WeeklyDestory());
+            SupportedTasks.Add(new Tasks.WeeklyPowerUp());
         }
 
         private static void delayCheckAvailable() {
