@@ -54,6 +54,7 @@ namespace TaskCounter {
             Hooks.OnQuestListChange += new Hooks.OnQuestListChangeHandler(delayCheckAvailable);
 
             // 每日任务
+            SupportedTasks.Add(new Tasks.DailySortie());
             SupportedTasks.Add(new Tasks.DailyAirCraft());
             SupportedTasks.Add(new Tasks.DailySubmarine());
             SupportedTasks.Add(new Tasks.DailySuppliesShip());

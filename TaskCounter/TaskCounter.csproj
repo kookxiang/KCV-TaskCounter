@@ -126,6 +126,10 @@
     <Compile Include="Models\Task.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="KCVPlugin.cs" />
+    <Compile Include="Tasks\DailySortie.cs" />
+    <Compile Include="Tasks\WeeklyPowerUp.cs" />
+    <Compile Include="Tasks\DailyPowerUp.cs" />
+    <Compile Include="Tasks\DailyRepair.cs" />
     <Compile Include="Tasks\DailySupply.cs" />
     <Compile Include="Tasks\WeeklyDestory.cs" />
     <Compile Include="Tasks\WeeklyExpedition.cs" />
