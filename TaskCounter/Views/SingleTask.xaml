@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TaskCounter.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="60" d:DesignWidth="420"
+             d:DesignHeight="78" d:DesignWidth="420"
              d:DataContext="{d:DesignData /SampleData/SingleTask.xaml}">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -17,7 +17,7 @@
     <Border Visibility="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
             BorderBrush="{DynamicResource ActiveBorderBrushKey}"
             BorderThickness="1"
-            Margin="2,0,2,4">
+            Margin="4,6,4,8">
         <Grid Background="{DynamicResource InactiveBackgroundBrushKey}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -27,15 +27,16 @@
                 <ColumnDefinition/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Padding="8,6"
+            <TextBlock Padding="8"
                            Grid.Row="0"
                            VerticalAlignment="Center">
                     <Run Text="{Binding Name, Mode=OneWay}"
-                         Style="{DynamicResource EmphaticTextElementStyleKey}" />
+                         Style="{DynamicResource EmphaticTextElementStyleKey}"
+                         FontSize="16" />
                     <LineBreak />
                     <Run Text="{Binding Description, Mode=OneWay}"
                          Style="{DynamicResource EmphaticTextElementStyleKey}"
-                         FontSize="10" />
+                         FontSize="12" />
             </TextBlock>
             <TextBlock Margin="8,0"
                        Grid.Column="1"
