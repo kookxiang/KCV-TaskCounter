@@ -60,6 +60,7 @@ namespace TaskCounter {
             SupportedTasks.Add(new Tasks.DailySuppliesShip2());
             SupportedTasks.Add(new Tasks.DailyExpedition());
             SupportedTasks.Add(new Tasks.DailyExpedition2());
+            SupportedTasks.Add(new Tasks.DailyRepair());
             SupportedTasks.Add(new Tasks.DailySupply());
 
             // 每周任务
