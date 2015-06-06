@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{964734E0-388B-4DC4-BFB8-C017D3095F31}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TaskCounter</RootNamespace>
+    <AssemblyName>TaskCounter</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCMakeCert">
+      <HintPath>..\packages\FiddlerCore.4.4.8.4\lib\net40\BCMakeCert.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CertMaker">
+      <HintPath>..\packages\FiddlerCore.4.4.8.4\lib\net40\CertMaker.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Desktop.Metro, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>KanColleViewerAssemblies\Desktop.Metro.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FiddlerCore4">
+      <HintPath>..\packages\FiddlerCore.4.5.1.0\lib\net40\FiddlerCore4.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="KanColleViewer">
+      <HintPath>KanColleViewerAssemblies\KanColleViewer.exe</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="KanColleWrapper">
+      <HintPath>KanColleViewerAssemblies\KanColleWrapper.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Livet">
+      <HintPath>..\packages\LivetCask.1.1.0.0\lib\net45\Livet.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetroRadiance">
+      <HintPath>..\packages\MetroRadiance.1.0.16\lib\net45\MetroRadiance.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetroRadiance.Chrome">
+      <HintPath>..\packages\MetroRadiance.Chrome.1.0.16\lib\net45\MetroRadiance.Chrome.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetroRadiance.Core">
+      <HintPath>..\packages\MetroRadiance.Core.1.0.16\lib\net45\MetroRadiance.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroRadiance.1.0.16\lib\net45\Microsoft.Expression.Interactions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Reactive.Core">
+      <HintPath>..\packages\Rx-Core.2.2.4\lib\net45\System.Reactive.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>..\packages\Rx-Interfaces.2.2.4\lib\net45\System.Reactive.Interfaces.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>..\packages\Rx-Linq.2.2.4\lib\net45\System.Reactive.Linq.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroRadiance.1.0.16\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\AirSupremacy.cs" />
+    <Compile Include="Models\BattleLogger.cs" />
+    <Compile Include="Models\BattleSituation.cs" />
+    <Compile Include="Models\DelayedTask.cs" />
+    <Compile Include="Models\EnemyDataProvider.cs" />
+    <Compile Include="Models\FleetDamages.cs" />
+    <Compile Include="Models\Formation.cs" />
+    <Compile Include="Models\Hooks.cs" />
+    <Compile Include="Models\Raw\battle_midnight_battle.cs" />
+    <Compile Include="Models\Raw\battle_midnight_sp_midnight.cs" />
+    <Compile Include="Models\Raw\CommonTypeExtensions.cs" />
+    <Compile Include="Models\Raw\CommonTypes.cs" />
+    <Compile Include="Models\Raw\map_start_next.cs" />
+    <Compile Include="Models\Raw\sortie_battle.cs" />
+    <Compile Include="Models\ShipData.cs" />
+    <Compile Include="Models\Task.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="KCVPlugin.cs" />
+    <Compile Include="Tasks\DailySupply.cs" />
+    <Compile Include="Tasks\WeeklyDestory.cs" />
+    <Compile Include="Tasks\WeeklyExpedition.cs" />
+    <Compile Include="Tasks\DailyExpedition2.cs" />
+    <Compile Include="Tasks\DailySubmarine.cs" />
+    <Compile Include="Tasks\CrashSubmarine.cs" />
+    <Compile Include="Tasks\DailyExpedition.cs" />
+    <Compile Include="Tasks\DailySuppliesShip2.cs" />
+    <Compile Include="Tasks\DailySuppliesShip.cs" />
+    <Compile Include="Tasks\DailyAirCraft.cs" />
+    <Compile Include="Tasks\OperationI.cs" />
+    <Compile Include="Tasks\CrashSuppliesShip.cs" />
+    <Compile Include="Tasks\OperationRo.cs" />
+    <Compile Include="Tasks\OperationA.cs" />
+    <Compile Include="ViewModels\PluginPanelViewModel.cs" />
+    <Compile Include="ViewModels\TaskViewModel.cs" />
+    <Compile Include="Views\PluginPanel.xaml.cs">
+      <DependentUpon>PluginPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SingleTask.xaml.cs">
+      <DependentUpon>SingleTask.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <DesignData Include="SampleData\SingleTask.xaml">
+      <SubType>Designer</SubType>
+    </DesignData>
+    <DesignData Include="SampleData\TaskList.xaml">
+      <SubType>Designer</SubType>
+    </DesignData>
+    <Page Include="Styles\PluginStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PluginPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SingleTask.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>mkdir $(SolutionDir)Grabacr07.KanColleViewer\bin\$(ConfigurationName)\Plugins
+xcopy /Y $(TargetDir)*.* $(SolutionDir)Grabacr07.KanColleViewer\bin\$(ConfigurationName)
+move $(SolutionDir)Grabacr07.KanColleViewer\bin\$(ConfigurationName)\$(TargetName).* $(SolutionDir)Grabacr07.KanColleViewer\bin\$(ConfigurationName)\Plugins</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
