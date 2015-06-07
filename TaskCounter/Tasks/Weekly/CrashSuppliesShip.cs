@@ -16,7 +16,7 @@ namespace TaskCounter.Tasks.Weekly {
         }
 
         public void onEnemyShipSink(ShipData ship) {
-            if (!Ship.Supplies.Contains(ship.Id))
+            if (!ShipConst.Supplies.Contains(ship.Id))
                 return;
             Increase();
         }

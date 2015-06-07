@@ -1,5 +1,5 @@
 ﻿namespace TaskCounter.Models {
-    public class Ship {
+    public class ShipConst {
         // 潜艇 ID
         public static readonly int[] Submarines = new int[] { 530, 531, 532, 533, 534, 535, 570, 571, 572 };
 

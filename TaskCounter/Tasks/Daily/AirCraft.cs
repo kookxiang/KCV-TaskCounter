@@ -16,7 +16,7 @@ namespace TaskCounter.Tasks.Daily {
         }
 
         public void onEnemyShipSink(ShipData ship) {
-            if (!Ship.AirCarriers.Contains(ship.Id))
+            if (!ShipConst.AirCarriers.Contains(ship.Id))
                 return;
             Increase();
         }

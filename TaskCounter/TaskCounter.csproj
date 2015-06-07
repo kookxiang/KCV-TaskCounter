@@ -108,7 +108,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Ship.cs" />
+    <Compile Include="Models\ShipConst.cs" />
     <Compile Include="Models\AirSupremacy.cs" />
     <Compile Include="Models\BattleLogger.cs" />
     <Compile Include="Models\BattleSituation.cs" />
