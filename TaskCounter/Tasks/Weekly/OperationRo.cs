@@ -3,9 +3,6 @@ using TaskCounter.Models;
 
 namespace TaskCounter.Tasks.Weekly {
     public class OperationRo : Task {
-        // 补给船 ID
-        private readonly int[] Supplies = new int[] { 513, 526, 558 };
-
         public override void Initialize() {
             MaxCount[0] = 50;
 
@@ -19,7 +16,7 @@ namespace TaskCounter.Tasks.Weekly {
         }
 
         public void onEnemyShipSink(ShipData ship) {
-            if (!Supplies.Contains(ship.Id))
+            if (!Ship.Supplies.Contains(ship.Id))
                 return;
             Increase();
         }
