@@ -1,12 +1,12 @@
 ﻿<local:PluginPanelViewModel xmlns:local="clr-namespace:TaskCounter.ViewModels">
-    <local:TaskViewModel Name="测试任务"
-                         Description="我只是想试试效果而已嘛"
-                         IsVisible="True"
-                         Precentage_Text="32%"
-                         Precentage="32" />
-    <local:TaskViewModel Name="测试任务2"
-                         Description="我只是想试试效果而已嘛"
-                         IsVisible="True"
-                         Precentage_Text="72%"
-                         Precentage="72" />
+    <local:PluginPanelViewModel.List>
+        <local:TaskViewModel Name="测试任务"
+                             Description="我只是想试试效果而已嘛"
+                             Precentage_Text="32%"
+                             Precentage="32" />
+        <local:TaskViewModel Name="测试任务2"
+                             Description="我只是想试试效果而已嘛"
+                             Precentage_Text="72%"
+                             Precentage="72" />
+    </local:PluginPanelViewModel.List>
 </local:PluginPanelViewModel>

@@ -54,16 +54,5 @@ namespace TaskCounter.ViewModels {
                 RaisePropertyChanged();
             }
         }
-
-        public bool _IsVisible;
-        public bool IsVisible {
-            get {
-                return BindedTask != null && _IsVisible;
-            }
-            set {
-                _IsVisible = value;
-                RaisePropertyChanged();
-            }
-        }
     }
 }

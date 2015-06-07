@@ -24,7 +24,6 @@ namespace TaskCounter.Models {
             BindedViewModel.Name = Name;
             BindedViewModel.Description = Description;
             BindedViewModel.Precentage = Precentage;
-            KCVPlugin.viewModel.Add(BindedViewModel);
 
             Save();
         }
@@ -239,7 +238,7 @@ namespace TaskCounter.Models {
         }
 
         public void checkAvailable(int[] misson) {
-            BindedViewModel.IsVisible = isAvailable = misson.Contains(TaskID);
+            isAvailable = misson.Contains(TaskID);
         }
 
         [Serializable()]

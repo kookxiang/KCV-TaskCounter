@@ -1,6 +1,5 @@
 ﻿<local:TaskViewModel xmlns:local="clr-namespace:TaskCounter.ViewModels"
                      Name="测试任务"
-                     IsVisible="True"
                      Description="我只是想试试效果而已嘛"
                      Precentage_Text="72%"
                      Precentage="72" />

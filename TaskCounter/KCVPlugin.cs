@@ -94,6 +94,7 @@ namespace TaskCounter {
                 if (task != null)
                     task.checkAvailable(misson);
             });
+            viewModel.List = SupportedTasks.Where(x => x.isAvailable).Select(x => x.BindedViewModel).ToList();
         }
 
         public string ToolName {

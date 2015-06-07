@@ -27,7 +27,7 @@
         <ScrollViewer VerticalScrollBarVisibility="Auto"
                       HorizontalScrollBarVisibility="Hidden"
                       PanningMode="Both">
-            <ItemsControl ItemsSource="{Binding}">
+            <ItemsControl ItemsSource="{Binding List}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate DataType="{x:Type vm:TaskViewModel}">
                         <views:SingleTask DataContext="{Binding}"/>

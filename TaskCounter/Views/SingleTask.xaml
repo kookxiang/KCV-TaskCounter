@@ -14,8 +14,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    <Border Visibility="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
-            BorderBrush="{DynamicResource ActiveBorderBrushKey}"
+    <Border BorderBrush="{DynamicResource ActiveBorderBrushKey}"
             BorderThickness="1"
             Margin="4,6,4,8">
         <Grid Background="{DynamicResource InactiveBackgroundBrushKey}">
