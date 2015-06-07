@@ -20,13 +20,14 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <ScrollViewer VerticalScrollBarVisibility="Auto"
-                      HorizontalScrollBarVisibility="Hidden"
-                      PanningMode="Both">
+    <ScrollViewer VerticalScrollBarVisibility="Auto"
+                  HorizontalScrollBarVisibility="Hidden"
+                  PanningMode="Both">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
             <ItemsControl ItemsSource="{Binding List}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate DataType="{x:Type vm:TaskViewModel}">
@@ -34,6 +35,24 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-        </ScrollViewer>
-    </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"
+                           Margin="2,4,2,0"
+                           Foreground="{DynamicResource ActiveForegroundBrushKey}"
+                           FontSize="12">
+                    <Run Text="* 统计信息仅供参考, 若与游戏内显示不同请以游戏内显示的进度为准"/>
+                </TextBlock>
+                <TextBlock Grid.Column="1"
+                           Margin="2,4,2,0"
+                           Foreground="{DynamicResource ActiveForegroundBrushKey}"
+                           FontSize="12">
+                    <Run Text="2015, kookxiang"/>
+                </TextBlock>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
 </UserControl>

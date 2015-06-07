@@ -14,10 +14,10 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    <Border BorderBrush="{DynamicResource ActiveBorderBrushKey}"
+    <Border BorderBrush="{DynamicResource AccentActiveBrushKey}"
             BorderThickness="1"
             Margin="4,6,4,8">
-        <Grid Background="{DynamicResource InactiveBackgroundBrushKey}">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="6"/>
@@ -30,11 +30,11 @@
                            Grid.Row="0"
                            VerticalAlignment="Center">
                     <Run Text="{Binding Name, Mode=OneWay}"
-                         Style="{DynamicResource EmphaticTextElementStyleKey}"
+                         Foreground="{DynamicResource ActiveForegroundBrushKey}"
                          FontSize="16" />
                     <LineBreak />
                     <Run Text="{Binding Description, Mode=OneWay}"
-                         Style="{DynamicResource EmphaticTextElementStyleKey}"
+                         Foreground="{DynamicResource InactiveForegroundBrushKey}"
                          FontSize="12" />
             </TextBlock>
             <TextBlock Margin="8,0"
@@ -52,8 +52,8 @@
                          Value="{Binding Precentage, Mode=OneWay}"
                          Minimum="0"
                          Maximum="100"
-                         BorderThickness="0,1,0,0"
-                         BorderBrush="{DynamicResource InactiveBorderBrushKey}"/>
+                         BorderThickness="0"
+                         Foreground="{DynamicResource AccentActiveBrushKey}"/>
         </Grid>
     </Border>
 </UserControl>
