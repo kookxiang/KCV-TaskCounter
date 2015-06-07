@@ -34,5 +34,8 @@ namespace TaskCounter.Models {
 
         public delegate void OnDestoryShipHandler();
         public static OnDestoryShipHandler OnDestoryShip;
+
+        public delegate void OnEnterMapHandler(int MapAera, int MapID, bool isBoss);
+        public static OnEnterMapHandler OnEnterMap;
     }
 }
