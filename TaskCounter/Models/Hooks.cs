@@ -25,5 +25,11 @@ namespace TaskCounter.Models {
 
         public delegate void OnRepairHandler();
         public static OnRepairHandler OnRepair;
+
+        public delegate void OnBuildShipHandler();
+        public static OnBuildShipHandler OnBuildShip;
+
+        public delegate void OnCreateItemHandler();
+        public static OnCreateItemHandler OnCreateItem;
     }
 }

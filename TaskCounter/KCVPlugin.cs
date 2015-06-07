@@ -50,6 +50,12 @@ namespace TaskCounter {
             // 战斗结算
             KanColleClient.Current.Proxy.api_req_sortie_battleresult.TryParse<kcsapi_battleresult>().Subscribe(x => Hooks.OnBattleFinish(x.Data));
 
+            // 船只建造
+            KanColleClient.Current.Proxy.api_req_kousyou_createship.TryParse().Subscribe(x => Hooks.OnBuildShip());
+
+            // 装备开发
+            KanColleClient.Current.Proxy.api_req_kousyou_createitem.TryParse().Where(x => x.IsSuccess).Subscribe(x => Hooks.OnCreateItem());
+
             // 挂钩子，检查任务可用状态
             Hooks.OnQuestListChange += new Hooks.OnQuestListChangeHandler(delayCheckAvailable);
 
