@@ -121,11 +121,14 @@
     <Compile Include="Models\Raw\CommonTypeExtensions.cs" />
     <Compile Include="Models\Raw\CommonTypes.cs" />
     <Compile Include="Models\Raw\map_start_next.cs" />
+    <Compile Include="Models\Raw\practice_result.cs" />
     <Compile Include="Models\Raw\sortie_battle.cs" />
     <Compile Include="Models\ShipData.cs" />
     <Compile Include="Models\Task.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="KCVPlugin.cs" />
+    <Compile Include="Tasks\Daily\PracticeWin.cs" />
+    <Compile Include="Tasks\Daily\Practice.cs" />
     <Compile Include="Tasks\Daily\ItemBuild2.cs" />
     <Compile Include="Tasks\Daily\ItemBuild.cs" />
     <Compile Include="Tasks\Daily\NorthWest.cs" />
@@ -150,6 +153,7 @@
     <Compile Include="Tasks\Weekly\CrashSuppliesShip.cs" />
     <Compile Include="Tasks\Weekly\OperationRo.cs" />
     <Compile Include="Tasks\Weekly\OperationA.cs" />
+    <Compile Include="Tasks\Weekly\PracticeWin.cs" />
     <Compile Include="ViewModels\PluginPanelViewModel.cs" />
     <Compile Include="ViewModels\TaskViewModel.cs" />
     <Compile Include="Views\PluginPanel.xaml.cs">

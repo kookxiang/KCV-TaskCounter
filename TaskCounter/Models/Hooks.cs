@@ -1,4 +1,5 @@
-﻿using Grabacr07.KanColleWrapper.Models.Raw;
+﻿using System;
+using Grabacr07.KanColleWrapper.Models.Raw;
 
 namespace TaskCounter.Models {
     public class Hooks {
@@ -37,5 +38,8 @@ namespace TaskCounter.Models {
 
         public delegate void OnEnterMapHandler(int MapAera, int MapID, bool isBoss);
         public static OnEnterMapHandler OnEnterMap;
+
+        public delegate void OnPracticeHandler(string api_win_rank);
+        public static OnPracticeHandler OnPractice;
     }
 }
