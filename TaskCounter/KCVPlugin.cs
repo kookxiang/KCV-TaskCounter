@@ -27,6 +27,7 @@ namespace TaskCounter {
         public static PluginPanelViewModel viewModel = new PluginPanelViewModel();
 
         public KCVPlugin() {
+            #region 挂Fiddler钩子
             KanColleClient.Current.Proxy.api_start2.TryParse<kcsapi_start2>().Subscribe(x => RawStart2 = x.Data);
 
             // 刷新任务列表
@@ -60,8 +61,9 @@ namespace TaskCounter {
             // 拆船
             KanColleClient.Current.Proxy.api_req_kousyou_destroyship.TryParse().Subscribe(x => Hooks.OnDestoryShip());
 
-            // 挂钩子，检查任务可用状态
+            // 检查任务可用状态
             Hooks.OnQuestListChange += new Hooks.OnQuestListChangeHandler(delayCheckAvailable);
+            #endregion
 
             // 每日任务
             List<Type> dailyTask = Assembly.GetExecutingAssembly().GetTypes().ToList().Where(t => t.Namespace == "TaskCounter.Tasks.Daily").ToList();
