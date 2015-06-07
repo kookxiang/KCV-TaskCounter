@@ -1,17 +1,17 @@
 ﻿using System.Linq;
 using TaskCounter.Models;
 
-namespace TaskCounter.Tasks {
-    public class OperationRo : Task {
+namespace TaskCounter.Tasks.Weekly {
+    public class CrashSuppliesShip : Task {
         // 补给船 ID
         private readonly int[] Supplies = new int[] { 513, 526, 558 };
 
         public override void Initialize() {
-            MaxCount[0] = 50;
+            MaxCount[0] = 20;
 
-            TaskID = 221;
-            Name = "ろ号作戦";
-            Description = "一周内击沉 50 艘补给船";
+            TaskID = 213;
+            Name = "海上通商破壊作戦";
+            Description = "一周内击沉 20 艘补给船";
             TaskCycle = Cycle.Week;
 
             // 挂钩子：战斗结束检查

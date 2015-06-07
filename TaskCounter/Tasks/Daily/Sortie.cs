@@ -2,8 +2,8 @@
 using System.Linq;
 using TaskCounter.Models;
 
-namespace TaskCounter.Tasks {
-    public class DailySortie : Task {
+namespace TaskCounter.Tasks.Daily {
+    public class Sortie : Task {
         public override void Initialize() {
             MaxCount[0] = 10;
 

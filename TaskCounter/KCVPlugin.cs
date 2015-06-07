@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Reactive.Linq;
+using System.Reflection;
 using System.Threading;
 using TaskCounter.Models;
 using TaskCounter.ViewModels;
@@ -56,37 +57,31 @@ namespace TaskCounter {
             // 装备开发
             KanColleClient.Current.Proxy.api_req_kousyou_createitem.TryParse().Where(x => x.IsSuccess).Subscribe(x => Hooks.OnCreateItem());
 
+            // 拆船
+            KanColleClient.Current.Proxy.api_req_kousyou_destroyship.TryParse().Subscribe(x => Hooks.OnDestoryShip());
+
             // 挂钩子，检查任务可用状态
             Hooks.OnQuestListChange += new Hooks.OnQuestListChangeHandler(delayCheckAvailable);
 
             // 每日任务
-            SupportedTasks.Add(new Tasks.DailySortie());
-            SupportedTasks.Add(new Tasks.DailyAirCraft());
-            SupportedTasks.Add(new Tasks.DailySubmarine());
-            SupportedTasks.Add(new Tasks.DailySuppliesShip());
-            SupportedTasks.Add(new Tasks.DailySuppliesShip2());
-            SupportedTasks.Add(new Tasks.DailyExpedition());
-            SupportedTasks.Add(new Tasks.DailyExpedition2());
-            SupportedTasks.Add(new Tasks.DailyRepair());
-            SupportedTasks.Add(new Tasks.DailySupply());
-            SupportedTasks.Add(new Tasks.DailyPowerUp());
+            List<Type> dailyTask = Assembly.GetExecutingAssembly().GetTypes().ToList().Where(t => t.Namespace == "TaskCounter.Tasks.Daily").ToList();
+            foreach (Type taskName in dailyTask) {
+                SupportedTasks.Add((Task)Activator.CreateInstance(taskName));
+            }
 
             // 每周任务
-            SupportedTasks.Add(new Tasks.OperationA());
-            SupportedTasks.Add(new Tasks.OperationI());
-            SupportedTasks.Add(new Tasks.CrashSuppliesShip());
-            SupportedTasks.Add(new Tasks.OperationRo());
-            SupportedTasks.Add(new Tasks.CrashSubmarine());
-            SupportedTasks.Add(new Tasks.WeeklyExpedition());
-            SupportedTasks.Add(new Tasks.WeeklyDestory());
-            SupportedTasks.Add(new Tasks.WeeklyPowerUp());
+            List<Type> weeklyTask = Assembly.GetExecutingAssembly().GetTypes().ToList().Where(t => t.Namespace == "TaskCounter.Tasks.Weekly").ToList();
+            foreach (Type taskName in weeklyTask) {
+                SupportedTasks.Add((Task)Activator.CreateInstance(taskName));
+            }
         }
 
         private static void delayCheckAvailable() {
             new Thread(checkAvailable).Start();
         }
+
         private static void checkAvailable() {
-            Thread.Sleep(300);
+            Thread.Sleep(100);
             int[] misson = null;
             try {
                 misson = KanColleClient.Current.Homeport.Quests.Current.Where(i => i != null).Select(i => i.Id).ToArray();

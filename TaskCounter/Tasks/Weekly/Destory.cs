@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using TaskCounter.Models;
 
-namespace TaskCounter.Tasks {
-    public class WeeklyDestory : Task {
+namespace TaskCounter.Tasks.Weekly {
+    public class Destory : Task {
 
         public override void Initialize() {
             MaxCount[0] = 24;

@@ -1,18 +1,18 @@
 ﻿using System.Linq;
 using TaskCounter.Models;
 
-namespace TaskCounter.Tasks {
-    public class CrashSuppliesShip : Task {
+namespace TaskCounter.Tasks.Daily {
+    public class SuppliesShip2 : Task {
         // 补给船 ID
         private readonly int[] Supplies = new int[] { 513, 526, 558 };
 
         public override void Initialize() {
-            MaxCount[0] = 20;
+            MaxCount[0] = 5;
 
-            TaskID = 213;
-            Name = "海上通商破壊作戦";
-            Description = "一周内击沉 20 艘补给船";
-            TaskCycle = Cycle.Week;
+            TaskID = 212;
+            Name = "敵輸送船団を叩け！";
+            Description = "击沉敌方 5 艘补给舰";
+            TaskCycle = Cycle.Day;
 
             // 挂钩子：战斗结束检查
             Hooks.OnEnemyShipSink += new Hooks.OnEnemyShipSinkHandler(onEnemyShipSink);

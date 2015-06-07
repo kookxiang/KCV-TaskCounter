@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using TaskCounter.Models;
 
-namespace TaskCounter.Tasks {
-    public class DailyAirCraft : Task {
+namespace TaskCounter.Tasks.Daily {
+    public class AirCraft : Task {
         // 航母 ID
         private readonly int[] Carriers = new int[] { 510, 512, 525, 528, 565, 579, 523, 560 };
 

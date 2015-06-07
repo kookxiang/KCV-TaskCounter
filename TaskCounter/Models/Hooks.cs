@@ -31,5 +31,8 @@ namespace TaskCounter.Models {
 
         public delegate void OnCreateItemHandler();
         public static OnCreateItemHandler OnCreateItem;
+
+        public delegate void OnDestoryShipHandler();
+        public static OnDestoryShipHandler OnDestoryShip;
     }
 }

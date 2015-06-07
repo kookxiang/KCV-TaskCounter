@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using TaskCounter.Models;
 
-namespace TaskCounter.Tasks {
-    public class DailyPowerUp : Task {
+namespace TaskCounter.Tasks.Daily {
+    public class PowerUp : Task {
 
         public override void Initialize() {
             MaxCount[0] = 2;

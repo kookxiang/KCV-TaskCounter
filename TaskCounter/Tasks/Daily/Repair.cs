@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using TaskCounter.Models;
 
-namespace TaskCounter.Tasks {
-    public class DailyRepair : Task {
+namespace TaskCounter.Tasks.Daily {
+    public class Repair : Task {
 
         public override void Initialize() {
             MaxCount[0] = 5;

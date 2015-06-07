@@ -2,7 +2,7 @@
 using System.Linq;
 using TaskCounter.Models;
 
-namespace TaskCounter.Tasks {
+namespace TaskCounter.Tasks.Weekly {
     public class OperationA : Task {
         const int SORTIE = 0;
         const int BOSS = 1;

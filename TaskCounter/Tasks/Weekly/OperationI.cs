@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using TaskCounter.Models;
 
-namespace TaskCounter.Tasks {
+namespace TaskCounter.Tasks.Weekly {
     public class OperationI : Task {
         // 航母 ID
         private readonly int[] Carriers = new int[] { 510, 512, 525, 528, 565, 579, 523, 560 };
