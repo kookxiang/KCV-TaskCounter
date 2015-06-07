@@ -1,7 +1,8 @@
-﻿using Grabacr07.KanColleWrapper.Models.Raw;
+﻿namespace TaskCounter.Models.Raw {
+    public class practice_result {
+        public practice_result() {
+        }
 
-namespace TaskCounter.Models.Raw {
-    class practice_result {
         public int[] api_ship_id {
             get; set;
         }
@@ -36,6 +37,21 @@ namespace TaskCounter.Models.Raw {
             get; set;
         }
         public Api_Enemy_Info api_enemy_info {
+            get; set;
+        }
+    }
+
+    public class Api_Enemy_Info {
+        public string api_user_name {
+            get; set;
+        }
+        public int api_level {
+            get; set;
+        }
+        public string api_rank {
+            get; set;
+        }
+        public string api_deck_name {
             get; set;
         }
     }

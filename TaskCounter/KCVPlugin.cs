@@ -63,7 +63,7 @@ namespace TaskCounter {
             KanColleClient.Current.Proxy.api_req_kousyou_destroyship.TryParse().Subscribe(x => Hooks.OnDestoryShip());
 
             // 演习
-            KanColleClient.Current.Proxy.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/\api_req_practice/battle_result").TryParse<practice_result>().Subscribe(x => Hooks.OnPractice(x.Data.api_win_rank));
+            KanColleClient.Current.Proxy.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_req_practice/battle_result").TryParse<practice_result>().Subscribe(x => Hooks.OnPractice(x.Data.api_win_rank));
 
             // 检查任务可用状态
             Hooks.OnQuestListChange += new Hooks.OnQuestListChangeHandler(delayCheckAvailable);
