@@ -45,7 +45,7 @@ namespace TaskCounter {
             KanColleClient.Current.Proxy.api_req_kousyou_destroyitem2.TryParse().Where(x => x.IsSuccess).Subscribe(x => Hooks.OnDestroyItem());
 
             // 近代化改修
-            KanColleClient.Current.Proxy.api_req_kaisou_powerup.TryParse().Where(x => x.IsSuccess).Subscribe(x => Hooks.OnPowerUp());
+            KanColleClient.Current.Proxy.api_req_kaisou_powerup.TryParse<kaisou_powerup>().Where(x => x.Data.api_powerup_flag == 1).Subscribe(x => Hooks.OnPowerUp());
 
             // 入渠
             KanColleClient.Current.Proxy.api_req_nyukyo_start.TryParse().Where(x => x.IsSuccess).Subscribe(x => Hooks.OnRepair());
