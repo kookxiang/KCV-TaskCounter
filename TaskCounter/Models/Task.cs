@@ -1,4 +1,5 @@
-﻿using Grabacr07.KanColleWrapper;
+﻿using Grabacr07.KanColleViewer.Composition;
+using Grabacr07.KanColleWrapper;
 using System;
 using System.IO;
 using System.Linq;
@@ -26,6 +27,8 @@ namespace TaskCounter.Models {
             BindedViewModel.Precentage = Precentage;
 
             Save();
+
+            FinishNotice();
         }
 
         public abstract void Initialize();
@@ -128,6 +131,8 @@ namespace TaskCounter.Models {
             }
 
             BindedViewModel.Precentage = Precentage;
+
+            FinishNotice();
         }
 
         private string SavePath = "";
@@ -235,6 +240,17 @@ namespace TaskCounter.Models {
 
         public void checkAvailable(int[] misson) {
             isAvailable = misson.Contains(TaskID);
+        }
+
+        protected void FinishNotice() {
+            if (!isAvailable || Counter.Sum() != MaxCount.Sum())
+                return;
+
+            PluginHost.Instance.GetNotifier().Show(
+                NotifyType.Other,
+                "任务完成 - " + Name,
+                Description,
+                () => Grabacr07.KanColleViewer.App.ViewModelRoot.Activate());
         }
 
         [Serializable()]
