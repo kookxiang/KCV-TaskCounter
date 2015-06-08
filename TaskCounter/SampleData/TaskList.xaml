@@ -1,5 +1,5 @@
 ﻿<local:PluginPanelViewModel xmlns:local="clr-namespace:TaskCounter.ViewModels">
-    <local:PluginPanelViewModel.List>
+    <local:PluginPanelViewModel.AcceptedList>
         <local:TaskViewModel Name="测试任务"
                              Description="我只是想试试效果而已嘛"
                              Precentage_Text="32%"
@@ -8,5 +8,15 @@
                              Description="我只是想试试效果而已嘛"
                              Precentage_Text="72%"
                              Precentage="72" />
-    </local:PluginPanelViewModel.List>
+    </local:PluginPanelViewModel.AcceptedList>
+    <local:PluginPanelViewModel.AvailableList>
+        <local:TaskViewModel Name="尚未接受的任务A"
+                             Description="任务介绍哦"
+                             Precentage_Text="53%"
+                             Precentage="53" />
+        <local:TaskViewModel Name="任务名字很长很长的任务B"
+                             Description="看看任务详细信息很长很长很长很长很长很长很长会怎样呢~~"
+                             Precentage_Text="80%"
+                             Precentage="80" />
+    </local:PluginPanelViewModel.AvailableList>
 </local:PluginPanelViewModel>

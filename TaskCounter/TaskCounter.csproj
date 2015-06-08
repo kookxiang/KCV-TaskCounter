@@ -160,11 +160,14 @@
     <Compile Include="Tasks\Weekly\PracticeWin.cs" />
     <Compile Include="ViewModels\PluginPanelViewModel.cs" />
     <Compile Include="ViewModels\TaskViewModel.cs" />
+    <Compile Include="Views\AvailableTask.xaml.cs">
+      <DependentUpon>AvailableTask.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PluginPanel.xaml.cs">
       <DependentUpon>PluginPanel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SingleTask.xaml.cs">
-      <DependentUpon>SingleTask.xaml</DependentUpon>
+    <Compile Include="Views\AcceptedTask.xaml.cs">
+      <DependentUpon>AcceptedTask.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -182,11 +185,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\AvailableTask.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\PluginPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\SingleTask.xaml">
+    <Page Include="Views\AcceptedTask.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

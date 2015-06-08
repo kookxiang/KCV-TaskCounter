@@ -88,17 +88,24 @@ namespace TaskCounter {
 
         private static void checkAvailable() {
             Thread.Sleep(100);
-            int[] misson = null;
+            int[] AcceptedMission = null, AvailableMission = null;
             try {
-                misson = KanColleClient.Current.Homeport.Quests.Current.Where(i => i != null).Select(i => i.Id).ToArray();
+                AcceptedMission = KanColleClient.Current.Homeport.Quests.Current.Where(i => i != null).Select(i => i.Id).ToArray();
+                AvailableMission = KanColleClient.Current.Homeport.Quests.All.Where(i => i != null).Select(i => i.Id).Where(x => !AcceptedMission.Contains(x)).ToArray();
             } catch { }
-            if (misson == null || misson.Length == 0)
+            if (AvailableMission == null || AvailableMission.Length == 0)
                 return;
             SupportedTasks.ForEach(task => {
                 if (task != null)
-                    task.checkAvailable(misson);
+                    task.checkAvailable(AcceptedMission);
             });
-            viewModel.List = SupportedTasks.Where(x => x.isAvailable).Select(x => x.BindedViewModel).ToList();
+            viewModel.AcceptedList = SupportedTasks.Where(x => x.isAvailable).Select(x => x.BindedViewModel).ToList();
+            viewModel.AvailableList = new List<TaskViewModel>();
+            AvailableMission.ToList().ForEach(taskId => {
+                if (SupportedTasks.Where(x => !x.isAvailable && x.TaskID == taskId).Select(x => x.BindedViewModel).Count() == 0)
+                    return;
+                viewModel.AvailableList.Add(SupportedTasks.Where(x => !x.isAvailable && x.TaskID == taskId).Select(x => x.BindedViewModel).First());
+            });
         }
 
         public string ToolName {

@@ -17,8 +17,8 @@ namespace TaskCounter.Views {
     /// <summary>
     /// SingleTask.xaml 的交互逻辑
     /// </summary>
-    public partial class SingleTask : UserControl {
-        public SingleTask() {
+    public partial class AvailableTask : UserControl {
+        public AvailableTask() {
             InitializeComponent();
         }
     }
