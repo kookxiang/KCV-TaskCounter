@@ -44,7 +44,7 @@
                            Margin="2,4,2,0"
                            Foreground="{DynamicResource ActiveForegroundBrushKey}"
                            FontSize="12">
-                    <Run Text="* 统计信息仅供参考, 若与游戏内显示不同请以游戏内显示的进度为准"/>
+                    <Run Text="* 统计信息仅供参考, 请以游戏内进度为准"/>
                 </TextBlock>
                 <TextBlock Grid.Column="1"
                            Margin="2,4,2,0"
