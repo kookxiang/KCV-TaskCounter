@@ -138,7 +138,9 @@
     <Compile Include="Tasks\Daily\ShipBuild.cs" />
     <Compile Include="Tasks\Daily\ShipBuild2.cs" />
     <Compile Include="Tasks\Daily\ShipDestory.cs" />
+    <Compile Include="Tasks\Daily\Sortie2.cs" />
     <Compile Include="Tasks\Daily\Sortie.cs" />
+    <Compile Include="Tasks\Daily\Sortie3.cs" />
     <Compile Include="Tasks\Daily\Submarine.cs" />
     <Compile Include="Tasks\Daily\SuppliesShip.cs" />
     <Compile Include="Tasks\Daily\SuppliesShip2.cs" />

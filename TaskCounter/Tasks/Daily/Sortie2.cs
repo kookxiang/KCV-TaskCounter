@@ -3,13 +3,13 @@ using System.Linq;
 using TaskCounter.Models;
 
 namespace TaskCounter.Tasks.Daily {
-    public class Sortie : Task {
+    public class Sortie2 : Task {
         public override void Initialize() {
             MaxCount[0] = 1;
 
-            TaskID = 201;
-            Name = "敵艦隊を撃破せよ！";
-            Description = "出击胜利一次";
+            TaskID = 216;
+            Name = "敵艦隊主力を撃滅せよ！";
+            Description = "击败敌军的旗舰船";
             TaskCycle = Cycle.Day;
 
             Hooks.OnBattleFinish += new Hooks.OnBattleFinishHandler(onBattleFinish);
