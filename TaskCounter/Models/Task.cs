@@ -84,11 +84,7 @@ namespace TaskCounter.Models {
         /// </summary>
         public int Precentage {
             get {
-                int precentage = 0;
-                for (int i = 0; i < MaxCount.Length; i++) {
-                    precentage += (int)Math.Round((double)(Counter[i] * 100 / MaxCount[i] / Counter.Length));
-                }
-                return precentage;
+                return (int)Math.Round((double)(Counter.Sum() * 100 / MaxCount.Sum()));
             }
         }
 
