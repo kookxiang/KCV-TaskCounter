@@ -57,7 +57,7 @@ namespace TaskCounter {
             KanColleClient.Current.Proxy.api_req_kousyou_createship.TryParse().Subscribe(x => Hooks.OnBuildShip());
 
             // 装备开发
-            KanColleClient.Current.Proxy.api_req_kousyou_createitem.TryParse().Where(x => x.IsSuccess).Subscribe(x => Hooks.OnCreateItem());
+            KanColleClient.Current.Proxy.api_req_kousyou_createitem.TryParse().Subscribe(x => Hooks.OnCreateItem());
 
             // 拆船
             KanColleClient.Current.Proxy.api_req_kousyou_destroyship.TryParse().Subscribe(x => Hooks.OnDestoryShip());
