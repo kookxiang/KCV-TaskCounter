@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("TaskCounter")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("舰娘任务计数器")]
+[assembly: AssemblyDescription("为舰娘的任务提供更精确的统计信息")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("KK's Laboratory")]
 [assembly: AssemblyProduct("TaskCounter")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyCopyright("Copyright © kookxiang 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
