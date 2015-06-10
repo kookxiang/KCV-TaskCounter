@@ -38,8 +38,7 @@ namespace TaskCounter {
             KanColleClient.Current.Proxy.api_req_hokyu_charge.TryParse().Where(x => x.IsSuccess).Subscribe(x => Hooks.OnSupply());
 
             // 远征
-            KanColleClient.Current.Proxy.api_req_mission_result.TryParse<kcsapi_mission_result>()
-                .Where(x => x.IsSuccess).Where(x => x.Data.api_clear_result == 1).Subscribe(x => Hooks.OnExpeditionSuccess());
+            KanColleClient.Current.Proxy.api_req_mission_result.TryParse<kcsapi_mission_result>().Where(x => x.Data.api_clear_result > 0).Subscribe(x => Hooks.OnExpeditionSuccess());
 
             // 废弃装备
             KanColleClient.Current.Proxy.api_req_kousyou_destroyitem2.TryParse().Where(x => x.IsSuccess).Subscribe(x => Hooks.OnDestroyItem());
