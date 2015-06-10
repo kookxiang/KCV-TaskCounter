@@ -146,6 +146,7 @@
     <Compile Include="Tasks\Daily\SuppliesShip.cs" />
     <Compile Include="Tasks\Daily\SuppliesShip2.cs" />
     <Compile Include="Tasks\Daily\Supply.cs" />
+    <Compile Include="Tasks\Weekly\NorthwaySortie.cs" />
     <Compile Include="Tasks\Weekly\PowerUp.cs" />
     <Compile Include="Tasks\Weekly\Destory.cs" />
     <Compile Include="Tasks\Weekly\Expedition.cs" />
@@ -158,6 +159,7 @@
     <Compile Include="Tasks\Weekly\OperationRo.cs" />
     <Compile Include="Tasks\Weekly\OperationA.cs" />
     <Compile Include="Tasks\Weekly\PracticeWin.cs" />
+    <Compile Include="Tasks\Weekly\EastwaySortie.cs" />
     <Compile Include="Tasks\Weekly\SpecifiedSortie.cs" />
     <Compile Include="ViewModels\PluginPanelViewModel.cs" />
     <Compile Include="ViewModels\TaskViewModel.cs" />

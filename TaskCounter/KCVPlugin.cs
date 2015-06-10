@@ -62,7 +62,6 @@ namespace TaskCounter {
             // 战斗结算
             KanColleClient.Current.Proxy.api_req_sortie_battleresult.TryParse<kcsapi_battleresult>().Subscribe(x => {
                 Hooks.OnBattleFinish(currentMapAera, currentMapID, currentIsBoss, x.Data.api_win_rank);
-                Hooks.RawHandler.OnBattleFinish(x.Data);
             });
 
             // 船只建造

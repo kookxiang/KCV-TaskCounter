@@ -121,14 +121,11 @@ namespace TaskCounter.Models {
         public void Increase(int CounterOffset, int Count) {
             if (!isAvailable)
                 return;
-
-            // 临界区保护
-            lock (this) {
-                if (Counter[CounterOffset] >= MaxCount[CounterOffset])
-                    return;
-                Counter[CounterOffset] += Count;
-                Save();
-            }
+            
+            if (Counter[CounterOffset] >= MaxCount[CounterOffset])
+                return;
+            Counter[CounterOffset] += Count;
+            Save();
 
             BindedViewModel.Precentage = Precentage;
 

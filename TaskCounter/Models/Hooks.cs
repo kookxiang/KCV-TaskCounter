@@ -1,13 +1,5 @@
-﻿using System;
-using Grabacr07.KanColleWrapper.Models.Raw;
-
-namespace TaskCounter.Models {
+﻿namespace TaskCounter.Models {
     public class Hooks {
-        public class RawHandler {
-            public delegate void OnBattleFinishHandler(kcsapi_battleresult RawBattleResultData);
-            public static OnBattleFinishHandler OnBattleFinish;
-        }
-
         public delegate void OnEnemyShipSinkHandler(ShipData ship);
         public static OnEnemyShipSinkHandler OnEnemyShipSink;
 
