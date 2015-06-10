@@ -3,14 +3,16 @@ using Grabacr07.KanColleWrapper.Models.Raw;
 
 namespace TaskCounter.Models {
     public class Hooks {
+        public class RawHandler {
+            public delegate void OnBattleFinishHandler(kcsapi_battleresult RawBattleResultData);
+            public static OnBattleFinishHandler OnBattleFinish;
+        }
+
         public delegate void OnEnemyShipSinkHandler(ShipData ship);
         public static OnEnemyShipSinkHandler OnEnemyShipSink;
 
         public delegate void OnQuestListChangeHandler();
         public static OnQuestListChangeHandler OnQuestListChange;
-
-        public delegate void OnBattleFinishHandler(kcsapi_battleresult RawBattleResultData);
-        public static OnBattleFinishHandler OnBattleFinish;
 
         public delegate void OnSupplyHandler();
         public static OnSupplyHandler OnSupply;
@@ -38,6 +40,9 @@ namespace TaskCounter.Models {
 
         public delegate void OnEnterMapHandler(int MapAera, int MapID, bool isBoss);
         public static OnEnterMapHandler OnEnterMap;
+        
+        public delegate void OnBattleFinishHandler(int MapAera, int MapID, bool isBoss, string Rank);
+        public static OnBattleFinishHandler OnBattleFinish;
 
         public delegate void OnPracticeHandler(string api_win_rank);
         public static OnPracticeHandler OnPractice;

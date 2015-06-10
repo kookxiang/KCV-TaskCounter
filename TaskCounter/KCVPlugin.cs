@@ -26,6 +26,9 @@ namespace TaskCounter {
         public BattleLogger battleLogger = new BattleLogger();
         public static List<Task> SupportedTasks = new List<Task>();
         public static PluginPanelViewModel viewModel = new PluginPanelViewModel();
+        private int currentMapAera = 0;
+        private int currentMapID = 0;
+        private bool currentIsBoss = false;
 
         public KCVPlugin() {
             #region 挂Fiddler钩子
@@ -49,8 +52,18 @@ namespace TaskCounter {
             // 入渠
             KanColleClient.Current.Proxy.api_req_nyukyo_start.TryParse().Where(x => x.IsSuccess).Subscribe(x => Hooks.OnRepair());
 
+            // 地图切换
+            Hooks.OnEnterMap += new Hooks.OnEnterMapHandler((mapArea, mapId, isBoss) => {
+                currentMapAera = mapArea;
+                currentMapID = mapId;
+                currentIsBoss = isBoss;
+            });
+
             // 战斗结算
-            KanColleClient.Current.Proxy.api_req_sortie_battleresult.TryParse<kcsapi_battleresult>().Subscribe(x => Hooks.OnBattleFinish(x.Data));
+            KanColleClient.Current.Proxy.api_req_sortie_battleresult.TryParse<kcsapi_battleresult>().Subscribe(x => {
+                Hooks.OnBattleFinish(currentMapAera, currentMapID, currentIsBoss, x.Data.api_win_rank);
+                Hooks.RawHandler.OnBattleFinish(x.Data);
+            });
 
             // 船只建造
             KanColleClient.Current.Proxy.api_req_kousyou_createship.TryParse().Subscribe(x => Hooks.OnBuildShip());

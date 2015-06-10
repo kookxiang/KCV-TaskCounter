@@ -9,9 +9,6 @@ namespace TaskCounter.Tasks.Weekly {
         const int BOSS_WIN = 2;
         const int S_WIN = 3;
 
-        // 当前点是否为 Boss 点
-        bool isBoss = false;
-
         public override void Initialize() {
             Counter = new int[4];
 
@@ -28,18 +25,15 @@ namespace TaskCounter.Tasks.Weekly {
 
             // 战斗结束检查战斗结果
             Hooks.OnBattleFinish += new Hooks.OnBattleFinishHandler(onBattleFinish);
-
-            // 进入战斗前记录当前是否为 Boss 点
-            Hooks.OnEnterMap += new Hooks.OnEnterMapHandler((MapAera, MapId, isBoss) => this.isBoss = isBoss);
         }
 
-        public void onBattleFinish(kcsapi_battleresult RawBattleResultData) {
+        public void onBattleFinish(int MapAera, int MapID, bool isBoss, string Rank) {
             Increase(SORTIE);
-            if (RawBattleResultData.api_win_rank == "S")
+            if (Rank == "S")
                 Increase(S_WIN);
             if (isBoss) {
                 Increase(BOSS);
-                if (RawBattleResultData.api_win_rank != "C" & RawBattleResultData.api_win_rank != "D")
+                if (Rank != "C" & Rank != "D")
                     Increase(BOSS_WIN);
             }
         }

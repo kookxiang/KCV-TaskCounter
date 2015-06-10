@@ -1,11 +1,8 @@
-﻿using Grabacr07.KanColleWrapper.Models.Raw;
-using System.Linq;
+﻿using System.Linq;
 using TaskCounter.Models;
 
 namespace TaskCounter.Tasks.Daily {
     public class NorthWest : Task {
-        private int curMapArea = 0;
-        private bool isBossCell = false;
 
         public override void Initialize() {
             MaxCount[0] = 5;
@@ -16,19 +13,13 @@ namespace TaskCounter.Tasks.Daily {
             TaskCycle = Cycle.Day;
 
             Hooks.OnBattleFinish += new Hooks.OnBattleFinishHandler(onBattleFinish);
-            Hooks.OnEnterMap += new Hooks.OnEnterMapHandler(OnEnterMap);
         }
 
-        public void onBattleFinish(kcsapi_battleresult RawBattleResultData) {
-            if (curMapArea == 2)
-                if (isBossCell)
-                    if (RawBattleResultData.api_win_rank != "C" & RawBattleResultData.api_win_rank != "D")
+        public void onBattleFinish(int MapAera, int MapID, bool isBoss, string Rank) {
+            if (MapAera == 2)
+                if (isBoss)
+                    if (Rank != "C" & Rank != "D")
                         Increase();
-        }
-
-        public void OnEnterMap(int MapAera, int MapId, bool isBoss) {
-            curMapArea = MapAera;
-            isBossCell = isBoss;
         }
     }
 }

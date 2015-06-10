@@ -158,6 +158,7 @@
     <Compile Include="Tasks\Weekly\OperationRo.cs" />
     <Compile Include="Tasks\Weekly\OperationA.cs" />
     <Compile Include="Tasks\Weekly\PracticeWin.cs" />
+    <Compile Include="Tasks\Weekly\SpecifiedSortie.cs" />
     <Compile Include="ViewModels\PluginPanelViewModel.cs" />
     <Compile Include="ViewModels\TaskViewModel.cs" />
     <Compile Include="Views\AvailableTask.xaml.cs">

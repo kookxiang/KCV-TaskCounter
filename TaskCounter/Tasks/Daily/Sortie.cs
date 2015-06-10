@@ -1,5 +1,4 @@
-﻿using Grabacr07.KanColleWrapper.Models.Raw;
-using System.Linq;
+﻿using System.Linq;
 using TaskCounter.Models;
 
 namespace TaskCounter.Tasks.Daily {
@@ -15,8 +14,8 @@ namespace TaskCounter.Tasks.Daily {
             Hooks.OnBattleFinish += new Hooks.OnBattleFinishHandler(onBattleFinish);
         }
 
-        public void onBattleFinish(kcsapi_battleresult RawBattleResultData) {
-            if (RawBattleResultData.api_win_rank != "C" & RawBattleResultData.api_win_rank != "D")
+        public void onBattleFinish(int MapAera, int MapID, bool isBoss, string Rank) {
+            if (Rank != "C" & Rank != "D")
                 Increase();
         }
     }
