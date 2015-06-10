@@ -83,7 +83,8 @@ namespace TaskCounter.Models {
         }
 
         private void UpdateFleetsByStartNext(map_start_next startNext, string api_deck_id = null) {
-            Hooks.OnEnterMap(startNext.api_maparea_id, startNext.api_mapinfo_no, startNext.api_bosscell_no == startNext.api_no);
+            if (Hooks.OnEnterMap != null)
+                Hooks.OnEnterMap(startNext.api_maparea_id, startNext.api_mapinfo_no, startNext.api_bosscell_no == startNext.api_no);
 
             UpdatedTime = DateTimeOffset.Now;
 

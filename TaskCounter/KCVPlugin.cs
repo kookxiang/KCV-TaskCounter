@@ -35,22 +35,40 @@ namespace TaskCounter {
             KanColleClient.Current.Proxy.api_start2.TryParse<kcsapi_start2>().Subscribe(x => RawStart2 = x.Data);
 
             // 刷新任务列表
-            KanColleClient.Current.Proxy.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_get_member/questlist").Subscribe(x => Hooks.OnQuestListChange());
+            KanColleClient.Current.Proxy.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_get_member/questlist").Subscribe(x => {
+                if (Hooks.OnQuestListChange != null)
+                    Hooks.OnQuestListChange();
+            });
 
             // 补给
-            KanColleClient.Current.Proxy.api_req_hokyu_charge.TryParse().Where(x => x.IsSuccess).Subscribe(x => Hooks.OnSupply());
+            KanColleClient.Current.Proxy.api_req_hokyu_charge.TryParse().Where(x => x.IsSuccess).Subscribe(x => {
+                if (Hooks.OnSupply != null)
+                    Hooks.OnSupply();
+            });
 
             // 远征
-            KanColleClient.Current.Proxy.api_req_mission_result.TryParse<kcsapi_mission_result>().Where(x => x.Data.api_clear_result > 0).Subscribe(x => Hooks.OnExpeditionSuccess());
+            KanColleClient.Current.Proxy.api_req_mission_result.TryParse<kcsapi_mission_result>().Where(x => x.Data.api_clear_result > 0).Subscribe(x => {
+                if (Hooks.OnExpeditionSuccess != null)
+                    Hooks.OnExpeditionSuccess();
+            });
 
             // 废弃装备
-            KanColleClient.Current.Proxy.api_req_kousyou_destroyitem2.TryParse().Where(x => x.IsSuccess).Subscribe(x => Hooks.OnDestroyItem());
+            KanColleClient.Current.Proxy.api_req_kousyou_destroyitem2.TryParse().Where(x => x.IsSuccess).Subscribe(x => {
+                if (Hooks.OnDestroyItem != null)
+                    Hooks.OnDestroyItem();
+            });
 
             // 近代化改修
-            KanColleClient.Current.Proxy.api_req_kaisou_powerup.TryParse<kaisou_powerup>().Where(x => x.Data.api_powerup_flag == 1).Subscribe(x => Hooks.OnPowerUp());
+            KanColleClient.Current.Proxy.api_req_kaisou_powerup.TryParse<kaisou_powerup>().Where(x => x.Data.api_powerup_flag == 1).Subscribe(x => {
+                if (Hooks.OnPowerUp != null)
+                    Hooks.OnPowerUp();
+            });
 
             // 入渠
-            KanColleClient.Current.Proxy.api_req_nyukyo_start.TryParse().Where(x => x.IsSuccess).Subscribe(x => Hooks.OnRepair());
+            KanColleClient.Current.Proxy.api_req_nyukyo_start.TryParse().Where(x => x.IsSuccess).Subscribe(x => {
+                if (Hooks.OnRepair != null)
+                    Hooks.OnRepair();
+            });
 
             // 地图切换
             Hooks.OnEnterMap += new Hooks.OnEnterMapHandler((mapArea, mapId, isBoss) => {
@@ -61,20 +79,33 @@ namespace TaskCounter {
 
             // 战斗结算
             KanColleClient.Current.Proxy.api_req_sortie_battleresult.TryParse<kcsapi_battleresult>().Subscribe(x => {
-                Hooks.OnBattleFinish(currentMapAera, currentMapID, currentIsBoss, x.Data.api_win_rank);
+                if (Hooks.OnBattleFinish != null)
+                    Hooks.OnBattleFinish(currentMapAera, currentMapID, currentIsBoss, x.Data.api_win_rank);
             });
 
             // 船只建造
-            KanColleClient.Current.Proxy.api_req_kousyou_createship.TryParse().Subscribe(x => Hooks.OnBuildShip());
+            KanColleClient.Current.Proxy.api_req_kousyou_createship.TryParse().Subscribe(x => {
+                if (Hooks.OnBuildShip != null)
+                    Hooks.OnBuildShip();
+            });
 
             // 装备开发
-            KanColleClient.Current.Proxy.api_req_kousyou_createitem.TryParse().Subscribe(x => Hooks.OnCreateItem());
+            KanColleClient.Current.Proxy.api_req_kousyou_createitem.TryParse().Subscribe(x => {
+                if (Hooks.OnCreateItem != null)
+                    Hooks.OnCreateItem();
+            });
 
             // 拆船
-            KanColleClient.Current.Proxy.api_req_kousyou_destroyship.TryParse().Subscribe(x => Hooks.OnDestoryShip());
+            KanColleClient.Current.Proxy.api_req_kousyou_destroyship.TryParse().Subscribe(x => {
+                if (Hooks.OnDestoryShip != null)
+                    Hooks.OnDestoryShip();
+            });
 
             // 演习
-            KanColleClient.Current.Proxy.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_req_practice/battle_result").TryParse<practice_result>().Subscribe(x => Hooks.OnPractice(x.Data.api_win_rank));
+            KanColleClient.Current.Proxy.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_req_practice/battle_result").TryParse<practice_result>().Subscribe(x => {
+                if (Hooks.OnPractice != null)
+                    Hooks.OnPractice(x.Data.api_win_rank);
+            });
 
             // 检查任务可用状态
             Hooks.OnQuestListChange += new Hooks.OnQuestListChangeHandler(delayCheckAvailable);

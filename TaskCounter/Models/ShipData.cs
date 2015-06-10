@@ -133,7 +133,8 @@ namespace TaskCounter.Models {
             foreach (var damage in damages) {
                 ships.SetValues(damage.ToArray(), (s, d) => {
                     if (s.NowHP > 0 && s.NowHP <= d)
-                        Hooks.OnEnemyShipSink(s);
+                        if (Hooks.OnEnemyShipSink != null)
+                            Hooks.OnEnemyShipSink(s);
                     s.NowHP -= d;
                 });
             }
