@@ -33,7 +33,7 @@ namespace TaskCounter.Tasks.Weekly {
                 Increase(S_WIN);
             if (isBoss) {
                 Increase(BOSS);
-                if (Rank != "C" & Rank != "D")
+                if (Rank != "C" && Rank != "D")
                     Increase(BOSS_WIN);
             }
         }

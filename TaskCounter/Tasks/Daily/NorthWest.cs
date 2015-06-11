@@ -18,7 +18,7 @@ namespace TaskCounter.Tasks.Daily {
         public void onBattleFinish(int MapAera, int MapID, bool isBoss, string Rank) {
             if (MapAera == 2)
                 if (isBoss)
-                    if (Rank != "C" & Rank != "D")
+                    if (Rank != "C" && Rank != "D")
                         Increase();
         }
     }
