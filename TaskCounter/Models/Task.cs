@@ -119,6 +119,7 @@ namespace TaskCounter.Models {
         /// <param name="CounterOffset">计数器编号</param>
         /// <param name="Count">自增量</param>
         public void Increase(int CounterOffset, int Count) {
+            CheckTime();
             if (!isAvailable)
                 return;
             
@@ -210,21 +211,23 @@ namespace TaskCounter.Models {
         /// </summary>
         public void CheckTime() {
             // TODO: 非北京时间的处理
-            TaskUpdateTime = DateTime.Now;
-            if (TaskCycle == Cycle.Once)
-                return;
-            if (TaskCycle == Cycle.Day) {
-                TaskUpdateTime = new DateTime(StartTime.Year, StartTime.Month, StartTime.Day, 4, 0, 0);
-                if (StartTime.Hour >= 4)
-                    TaskUpdateTime = TaskUpdateTime.AddDays(1);
-            }
-            if (TaskCycle == Cycle.Week) {
-                TaskUpdateTime = new DateTime(StartTime.Year, StartTime.Month, StartTime.Day, 4, 0, 0);
-                TaskUpdateTime = TaskUpdateTime.AddDays(7 - (int)(TaskUpdateTime.DayOfWeek) + 1);
-            }
-            if (TaskCycle == Cycle.Month) {
-                TaskUpdateTime = new DateTime(StartTime.Year, StartTime.Month, 1, 4, 0, 0);
-                TaskUpdateTime.AddMonths(1);
+            if (TaskUpdateTime == null || TaskUpdateTime.CompareTo(DateTime.Now) <= 0) {
+                TaskUpdateTime = DateTime.Now;
+                if (TaskCycle == Cycle.Once)
+                    return;
+                if (TaskCycle == Cycle.Day) {
+                    TaskUpdateTime = new DateTime(StartTime.Year, StartTime.Month, StartTime.Day, 4, 0, 0);
+                    if (StartTime.Hour >= 4)
+                        TaskUpdateTime = TaskUpdateTime.AddDays(1);
+                }
+                if (TaskCycle == Cycle.Week) {
+                    TaskUpdateTime = new DateTime(StartTime.Year, StartTime.Month, StartTime.Day, 4, 0, 0);
+                    TaskUpdateTime = TaskUpdateTime.AddDays(7 - (int)(TaskUpdateTime.DayOfWeek) + 1);
+                }
+                if (TaskCycle == Cycle.Month) {
+                    TaskUpdateTime = new DateTime(StartTime.Year, StartTime.Month, 1, 4, 0, 0);
+                    TaskUpdateTime.AddMonths(1);
+                }
             }
             if (TaskUpdateTime.CompareTo(DateTime.Now) <= 0) {
                 ResetCounter();
