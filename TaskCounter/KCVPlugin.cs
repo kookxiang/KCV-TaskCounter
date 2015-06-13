@@ -33,11 +33,14 @@ namespace TaskCounter {
         public KCVPlugin() {
             #region 挂Fiddler钩子
             KanColleClient.Current.Proxy.api_start2.TryParse<kcsapi_start2>().Subscribe(x => RawStart2 = x.Data);
-
+            
             // 刷新任务列表
             KanColleClient.Current.Proxy.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_get_member/questlist").Subscribe(x => {
                 new Thread(checkTaskAvailable).Start();
             });
+
+            // 接任务
+            KanColleClient.Current.Proxy.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_req_quest/start").TryParse().Subscribe(x => onAcceptNewTask(int.Parse(x.Request.Get("id"))));
 
             // 补给
             KanColleClient.Current.Proxy.api_req_hokyu_charge.TryParse().Where(x => x.IsSuccess).Subscribe(x => {
@@ -118,6 +121,14 @@ namespace TaskCounter {
             foreach (Type taskName in weeklyTask) {
                 SupportedTasks.Add((Task)Activator.CreateInstance(taskName));
             }
+        }
+
+        private static void onAcceptNewTask(int newTaskID) {
+            Thread.Sleep(100);
+            SupportedTasks.Where(x => x.TaskID == newTaskID).ToList().ForEach(task => {
+                task.isAvailable = true;
+                task.CheckTime();
+            });
         }
 
         private static void checkTaskAvailable() {

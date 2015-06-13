@@ -79,7 +79,7 @@ namespace TaskCounter.Models {
         /// 是否启用计数器
         /// </summary>
         public bool isAvailable {
-            get; protected set;
+            get; set;
         }
 
         /// <summary>
@@ -209,6 +209,7 @@ namespace TaskCounter.Models {
         /// 检查任务刷新时间
         /// </summary>
         public void CheckTime() {
+            // TODO: 非北京时间的处理
             TaskUpdateTime = DateTime.Now;
             if (TaskCycle == Cycle.Once)
                 return;
@@ -226,12 +227,19 @@ namespace TaskCounter.Models {
                 TaskUpdateTime.AddMonths(1);
             }
             if (TaskUpdateTime.CompareTo(DateTime.Now) <= 0) {
-                for (int i = 0; i < Counter.Length; i++) {
-                    Counter[i] = 0;
-                }
+                ResetCounter();
+                StartTime = DateTime.Now;
+                isAvailable = false;            // 任务过期，需要重新领取
+                Save();
+            }
+            TaskUpdateChecker = new DelayedTask(CheckTime, TaskUpdateTime);
+        }
+
+        public void ResetCounter() {
+            for (int i = 0; i < Counter.Length; i++) {
+                Counter[i] = 0;
                 StartTime = DateTime.Now;
                 Save();
-                TaskUpdateChecker = new DelayedTask(CheckTime, TaskUpdateTime);
             }
         }
 
