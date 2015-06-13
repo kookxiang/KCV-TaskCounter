@@ -3,9 +3,6 @@
         public delegate void OnEnemyShipSinkHandler(ShipData ship);
         public static OnEnemyShipSinkHandler OnEnemyShipSink;
 
-        public delegate void OnQuestListChangeHandler();
-        public static OnQuestListChangeHandler OnQuestListChange;
-
         public delegate void OnSupplyHandler();
         public static OnSupplyHandler OnSupply;
 

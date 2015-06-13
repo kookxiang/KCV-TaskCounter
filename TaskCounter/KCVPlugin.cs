@@ -36,8 +36,7 @@ namespace TaskCounter {
 
             // 刷新任务列表
             KanColleClient.Current.Proxy.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_get_member/questlist").Subscribe(x => {
-                if (Hooks.OnQuestListChange != null)
-                    Hooks.OnQuestListChange();
+                new Thread(checkTaskAvailable).Start();
             });
 
             // 补给
@@ -106,9 +105,6 @@ namespace TaskCounter {
                 if (Hooks.OnPractice != null)
                     Hooks.OnPractice(x.Data.api_win_rank);
             });
-
-            // 检查任务可用状态
-            Hooks.OnQuestListChange += new Hooks.OnQuestListChangeHandler(delayCheckAvailable);
             #endregion
 
             // 每日任务
@@ -124,11 +120,7 @@ namespace TaskCounter {
             }
         }
 
-        private static void delayCheckAvailable() {
-            new Thread(checkAvailable).Start();
-        }
-
-        private static void checkAvailable() {
+        private static void checkTaskAvailable() {
             Thread.Sleep(100);
             int[] AcceptedMission = null, AvailableMission = null;
             try {
