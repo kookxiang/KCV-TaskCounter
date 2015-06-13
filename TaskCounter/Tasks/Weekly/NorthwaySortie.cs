@@ -16,7 +16,7 @@ namespace TaskCounter.Tasks.Weekly {
         }
 
         public void onBattleFinish(int MapAera, int MapID, bool isBoss, string Rank) {
-            if (MapAera == 4)
+            if (MapAera == 3)
                 if (MapID == 3 || MapID == 4 || MapID == 5)
                     if (isBoss)
                         if (Rank == "S" || Rank == "A" || Rank == "B")
