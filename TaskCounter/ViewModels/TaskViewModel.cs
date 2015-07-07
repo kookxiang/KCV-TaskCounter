@@ -31,16 +31,6 @@ namespace TaskCounter.ViewModels {
             set {
                 _Precentage = value;
                 RaisePropertyChanged();
-                RaisePropertyChanged(() => Precentage_Text);
-            }
-        }
-
-        public string Precentage_Text {
-            get {
-                return Precentage + " %";
-            }
-            set {
-                RaisePropertyChanged();
             }
         }
 

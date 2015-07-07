@@ -48,7 +48,7 @@
                        Grid.RowSpan="2"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Right">
-                <Run Text="{Binding Precentage_Text, Mode=OneWay}"
+                <Run Text="{Binding Precentage, Mode=OneWay, StringFormat={}{0:0}%}"
                      Style="{DynamicResource EmphaticTextElementStyleKey}" />
             </TextBlock>
         </Grid>
