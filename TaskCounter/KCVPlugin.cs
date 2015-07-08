@@ -40,7 +40,7 @@ namespace TaskCounter {
             });
 
             // 接任务
-            KanColleClient.Current.Proxy.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_req_quest/start").TryParse().Subscribe(x => onAcceptNewTask(int.Parse(x.Request.Get("id"))));
+            //KanColleClient.Current.Proxy.ApiSessionSource.Where(x => x.PathAndQuery == "/kcsapi/api_req_quest/start").TryParse().Subscribe(x => onAcceptNewTask(int.Parse(x.Request.Get("id"))));
 
             // 补给
             KanColleClient.Current.Proxy.api_req_hokyu_charge.TryParse().Where(x => x.IsSuccess).Subscribe(x => {
@@ -143,6 +143,8 @@ namespace TaskCounter {
             SupportedTasks.ForEach(task => {
                 if (task != null)
                     task.checkAvailable(AcceptedMission);
+                if(task.isAvailable)
+                    task.CheckTime();
             });
             viewModel.AcceptedList = SupportedTasks.Where(x => x.isAvailable).Select(x => x.BindedViewModel).ToList();
             viewModel.AvailableList = new List<TaskViewModel>();
