@@ -31,6 +31,19 @@ namespace TaskCounter.ViewModels {
             set {
                 _Precentage = value;
                 RaisePropertyChanged();
+                RaisePropertyChanged("ProgressBar_Fill");
+                RaisePropertyChanged("ProgressBar_Blank");
+            }
+        }
+
+        public string ProgressBar_Fill {
+            get {
+                return _Precentage + "*";
+            }
+        }
+        public string ProgressBar_Blank {
+            get {
+                return 100 - _Precentage + "*";
             }
         }
 

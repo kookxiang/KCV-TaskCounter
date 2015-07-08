@@ -22,14 +22,16 @@
                 <ColumnDefinition/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <ProgressBar Grid.ColumnSpan="2"
-                         Background="Transparent"
-                         Value="{Binding Precentage, Mode=OneWay}"
-                         Minimum="0"
-                         Maximum="100"
-                         Opacity="0.4"
-                         BorderThickness="0"
-                         Foreground="{DynamicResource AccentActiveBrushKey}"/>
+            <Grid Grid.Row="0"
+                  Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{Binding ProgressBar_Fill, Mode=OneWay}" />
+                    <ColumnDefinition Width="{Binding ProgressBar_Blank, Mode=OneWay}" />
+                </Grid.ColumnDefinitions>
+                <Rectangle Grid.Column="0"
+                           Opacity="0.5"
+                           Fill="{DynamicResource AccentActiveBrushKey}"/>
+            </Grid>
             <TextBlock Padding="8,6"
                        VerticalAlignment="Center">
                     <Run Text="{Binding Name, Mode=OneWay}"
