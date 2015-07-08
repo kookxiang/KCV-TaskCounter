@@ -35,5 +35,8 @@
 
         public delegate void OnPracticeHandler(string api_win_rank);
         public static OnPracticeHandler OnPractice;
+
+        public delegate void OnTaskListChangedHandler(int[] AcceptedMission, int[] AvailableMission);
+        public static OnTaskListChangedHandler OnTaskListChanged;
     }
 }

@@ -137,14 +137,17 @@ namespace TaskCounter {
             try {
                 AcceptedMission = KanColleClient.Current.Homeport.Quests.Current.Where(i => i != null).Select(i => i.Id).ToArray();
                 AvailableMission = KanColleClient.Current.Homeport.Quests.All.Where(i => i != null).Select(i => i.Id).Where(x => !AcceptedMission.Contains(x)).ToArray();
+                if (Hooks.OnTaskListChanged != null)
+                    Hooks.OnTaskListChanged(AcceptedMission, AvailableMission);
             } catch { }
             if (AvailableMission == null || AvailableMission.Length == 0)
                 return;
             SupportedTasks.ForEach(task => {
-                if (task != null)
+                if (task != null) {
                     task.checkAvailable(AcceptedMission);
-                if(task.isAvailable)
-                    task.CheckTime();
+                    if (task.isAvailable)
+                        task.CheckTime();
+                }
             });
             viewModel.AcceptedList = SupportedTasks.Where(x => x.isAvailable).Select(x => x.BindedViewModel).ToList();
             viewModel.AvailableList = new List<TaskViewModel>();

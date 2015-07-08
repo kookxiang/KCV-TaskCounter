@@ -3,6 +3,8 @@ using TaskCounter.Models;
 
 namespace TaskCounter.Tasks.Daily {
     public class SuppliesShip2 : Task {
+        public bool ConflictMode = false;
+
         public override void Initialize() {
             MaxCount[0] = 5;
 
@@ -11,8 +13,15 @@ namespace TaskCounter.Tasks.Daily {
             Description = "击沉敌方 5 艘补给舰";
             TaskCycle = Cycle.Day;
 
-            // 挂钩子：战斗结束检查
-            Hooks.OnEnemyShipSink += new Hooks.OnEnemyShipSinkHandler(onEnemyShipSink);
+            Hooks.OnEnemyShipSink += new Hooks.OnEnemyShipSinkHandler(ship => {
+                if (!ShipConst.Supplies.Contains(ship.Id))
+                    return;
+                Increase(ConflictMode ? 2 : 1, 0);
+            });
+
+            Hooks.OnTaskListChanged += new Hooks.OnTaskListChangedHandler((AcceptedMission, AvailableMission) => {
+                ConflictMode = AcceptedMission.Contains(218);
+            });
         }
 
         public void onEnemyShipSink(ShipData ship) {
