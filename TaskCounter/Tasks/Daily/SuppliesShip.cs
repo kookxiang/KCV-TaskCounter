@@ -16,7 +16,7 @@ namespace TaskCounter.Tasks.Daily {
             Hooks.OnEnemyShipSink += new Hooks.OnEnemyShipSinkHandler(ship => {
                 if (!ShipConst.Supplies.Contains(ship.Id))
                     return;
-                Increase(ConflictMode ? 2 : 1, 0);
+                Increase(0, ConflictMode ? 2 : 1);
             });
 
             Hooks.OnTaskListChanged += new Hooks.OnTaskListChangedHandler((AcceptedMission, AvailableMission) => {
