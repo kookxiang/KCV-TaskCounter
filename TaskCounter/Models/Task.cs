@@ -186,8 +186,6 @@ namespace TaskCounter.Models {
             }
 
             CheckTime();
-            TaskUpdateChecker.Abort();
-            TaskUpdateChecker = new DelayedTask(CheckTime, TaskUpdateTime);
         }
 
         /// <summary>
@@ -203,8 +201,6 @@ namespace TaskCounter.Models {
         public DateTime TaskUpdateTime {
             get; protected set;
         }
-
-        private DelayedTask TaskUpdateChecker = new DelayedTask();
 
         /// <summary>
         /// 检查任务刷新时间
@@ -235,7 +231,6 @@ namespace TaskCounter.Models {
                 isAvailable = false;            // 任务过期，需要重新领取
                 Save();
             }
-            TaskUpdateChecker = new DelayedTask(CheckTime, TaskUpdateTime);
         }
 
         public void ResetCounter() {
