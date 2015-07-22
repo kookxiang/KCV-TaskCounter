@@ -31,49 +31,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BCMakeCert">
-      <HintPath>..\packages\FiddlerCore.4.4.8.4\lib\net40\BCMakeCert.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\packages\FiddlerCore.4.5.1.0\lib\net40\BCMakeCert.dll</HintPath>
     </Reference>
     <Reference Include="CertMaker">
-      <HintPath>..\packages\FiddlerCore.4.4.8.4\lib\net40\CertMaker.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\packages\FiddlerCore.4.5.1.0\lib\net40\CertMaker.dll</HintPath>
     </Reference>
-    <Reference Include="Desktop.Metro, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="FiddlerCore4, Version=4.5.1.0, Culture=neutral, PublicKeyToken=67cb91587178ac5a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>KanColleViewerAssemblies\Desktop.Metro.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\packages\FiddlerCore.4.5.1.0\lib\net40\FiddlerCore4.dll</HintPath>
     </Reference>
-    <Reference Include="FiddlerCore4">
-      <HintPath>..\packages\FiddlerCore.4.5.1.0\lib\net40\FiddlerCore4.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="KanColleViewer">
-      <HintPath>KanColleViewerAssemblies\KanColleViewer.exe</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="KanColleWrapper">
-      <HintPath>KanColleViewerAssemblies\KanColleWrapper.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Livet">
-      <HintPath>..\packages\LivetCask.1.1.0.0\lib\net45\Livet.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MetroRadiance">
-      <HintPath>..\packages\MetroRadiance.1.0.16\lib\net45\MetroRadiance.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MetroRadiance.Chrome">
-      <HintPath>..\packages\MetroRadiance.Chrome.1.0.16\lib\net45\MetroRadiance.Chrome.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MetroRadiance.Core">
-      <HintPath>..\packages\MetroRadiance.Core.1.0.16\lib\net45\MetroRadiance.Core.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Livet, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b0b1d3f711ef38cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\LivetCask.1.1.0.0\lib\net45\Livet.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\MetroRadiance.1.0.16\lib\net45\Microsoft.Expression.Interactions.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\packages\LivetCask.1.1.0.0\lib\net45\Microsoft.Expression.Interactions.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -82,21 +54,21 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Reactive.Core">
-      <HintPath>..\packages\Rx-Core.2.2.4\lib\net45\System.Reactive.Core.dll</HintPath>
+      <HintPath>..\..\packages\Rx-Core.2.2.5\lib\net45\System.Reactive.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Reactive.Interfaces">
-      <HintPath>..\packages\Rx-Interfaces.2.2.4\lib\net45\System.Reactive.Interfaces.dll</HintPath>
+      <HintPath>..\..\packages\Rx-Interfaces.2.2.5\lib\net45\System.Reactive.Interfaces.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Reactive.Linq">
-      <HintPath>..\packages\Rx-Linq.2.2.4\lib\net45\System.Reactive.Linq.dll</HintPath>
+      <HintPath>..\..\packages\Rx-Linq.2.2.5\lib\net45\System.Reactive.Linq.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\MetroRadiance.1.0.16\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <HintPath>..\..\packages\MetroRadiance.1.0.16\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Xaml" />
@@ -106,6 +78,40 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Grabacr07.Desktop.Metro\Desktop.Metro.csproj">
+      <Project>{f00fc570-2a80-4f61-8364-798cd44514b2}</Project>
+      <Name>Desktop.Metro</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Grabacr07.KanColleViewer.Composition\KanColleViewer.Composition.csproj">
+      <Project>{cc139e98-d847-41da-b20f-8aca4564f375}</Project>
+      <Name>KanColleViewer.Composition</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Grabacr07.KanColleViewer.Controls\KanColleViewer.Controls.csproj">
+      <Project>{978239d0-3129-4c54-aac6-493f0de48bf5}</Project>
+      <Name>KanColleViewer.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Grabacr07.KanColleViewer\KanColleViewer.csproj">
+      <Project>{c5f0111f-3f68-4a74-bb20-bb762564d080}</Project>
+      <Name>KanColleViewer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Grabacr07.KanColleWrapper\KanColleWrapper.csproj">
+      <Project>{0bc8cf79-76d9-46ad-867f-fec6c6ad4594}</Project>
+      <Name>KanColleWrapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MetroRadiance\MetroRadiance.Chrome\MetroRadiance.Chrome.csproj">
+      <Project>{21b4ad15-d9fa-4873-bfad-1eeefbc6c264}</Project>
+      <Name>MetroRadiance.Chrome</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MetroRadiance\MetroRadiance.Core\MetroRadiance.Core.csproj">
+      <Project>{a6b0a741-5be0-479d-b813-e65672350057}</Project>
+      <Name>MetroRadiance.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MetroRadiance\MetroRadiance\MetroRadiance.csproj">
+      <Project>{0af0b9ff-d981-4d0f-a41f-c3ab6fe2f16d}</Project>
+      <Name>MetroRadiance</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Raw\kaisou_powerup.cs" />
@@ -202,6 +208,7 @@
     </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <PropertyGroup>
     <PostBuildEvent>mkdir $(SolutionDir)Grabacr07.KanColleViewer\bin\$(ConfigurationName)\Plugins
 xcopy /Y $(TargetDir)*.* $(SolutionDir)Grabacr07.KanColleViewer\bin\$(ConfigurationName)
