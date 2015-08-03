@@ -1,4 +1,6 @@
-﻿namespace TaskCounter.Models {
+﻿using Grabacr07.KanColleWrapper.Models.Raw;
+
+namespace TaskCounter.Models {
     public class Hooks {
         public delegate void OnEnemyShipSinkHandler(ShipData ship);
         public static OnEnemyShipSinkHandler OnEnemyShipSink;
@@ -8,6 +10,9 @@
 
         public delegate void OnExpeditionSuccessHandler();
         public static OnExpeditionSuccessHandler OnExpeditionSuccess;
+
+        public delegate void OnExpeditionSuccessRawHandler(kcsapi_mission_result RawData);
+        public static OnExpeditionSuccessRawHandler OnExpeditionSuccessRaw;
 
         public delegate void OnDestroyItemHandler();
         public static OnDestroyItemHandler OnDestroyItem;

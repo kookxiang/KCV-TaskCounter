@@ -52,6 +52,9 @@ namespace TaskCounter {
             KanColleClient.Current.Proxy.api_req_mission_result.TryParse<kcsapi_mission_result>().Where(x => x.Data.api_clear_result > 0).Subscribe(x => {
                 if (Hooks.OnExpeditionSuccess != null)
                     Hooks.OnExpeditionSuccess();
+
+                if (Hooks.OnExpeditionSuccessRaw != null)
+                    Hooks.OnExpeditionSuccessRaw(x.Data);
             });
 
             // 废弃装备
