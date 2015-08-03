@@ -17,7 +17,7 @@ namespace TaskCounter {
     [Export(typeof(IToolPlugin))]
     [ExportMetadata("Title", "KCV 任务计数器")]
     [ExportMetadata("Description", "计算任务完成进度")]
-    [ExportMetadata("Version", "1.0.0")]
+    [ExportMetadata("Version", "1.0.1")]
     [ExportMetadata("Author", "kookxiang")]
     public class KCVPlugin : IToolPlugin {
         internal static kcsapi_start2 RawStart2 {

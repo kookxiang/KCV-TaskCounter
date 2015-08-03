@@ -160,6 +160,8 @@
     <Compile Include="Tasks\Weekly\OperationA.cs" />
     <Compile Include="Tasks\Weekly\PracticeWin.cs" />
     <Compile Include="Tasks\Weekly\EastwaySortie.cs" />
+    <Compile Include="Tasks\Weekly\SouthwayExpedition2.cs" />
+    <Compile Include="Tasks\Weekly\SouthwayExpedition.cs" />
     <Compile Include="Tasks\Weekly\SpecifiedSortie.cs" />
     <Compile Include="ViewModels\PluginPanelViewModel.cs" />
     <Compile Include="ViewModels\TaskViewModel.cs" />
